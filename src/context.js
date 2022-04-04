@@ -3,8 +3,17 @@ import reducer from './reducer'
 
 const AppContext = React.createContext()
 
+const getFromLocalStorage = () => {
+  let localTasks = localStorage.getItem('tasks')
+  if (localTasks) {
+    return JSON.parse(localTasks)
+  } else {
+    return []
+  }
+}
+
 const initialState = {
-  tasks: [],
+  tasks: getFromLocalStorage(),
   query: '',
 }
 
@@ -18,6 +27,10 @@ export const AppProvider = ({ children }) => {
   const setTask = (task) => {
     dispatch({ type: 'SET_TASK', payload: task })
   }
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(state.tasks))
+  }, [state.tasks])
 
   return (
     <AppContext.Provider value={{ ...state, setQuery, setTask }}>
