@@ -131,3 +131,148 @@ main {
 .active {
   background: lightgreen;
 }
+
+/* 
+==================
+Form
+==================
+*/
+
+form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.input-wrapper {
+  border: 2px solid #bebebe;
+  border-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom: none;
+}
+
+.input-wrapper input {
+  font-size: 1.25rem;
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+}
+
+.input-wrapper input::placeholder {
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+.input-wrapper button {
+  cursor: pointer;
+  font-size: 1.25rem;
+  background: transparent;
+  border: none;
+  border-left: 2px solid #bebebe;
+  padding: 0.25rem 0.5rem;
+  text-transform: uppercase;
+}
+
+.input-wrapper button:hover {
+  transition: all 0.15s linear;
+  background: lightgreen;
+}
+
+/* 
+==================
+Tasks
+==================
+*/
+
+.tasks-container {
+  /* background: yellow; */
+  /* padding: 1rem 0.5rem; */
+  border: 2px solid #bebebe;
+
+  border-bottom: none;
+  /* border-radius: 5px; */
+}
+
+.task {
+  /* background: red; */
+  padding: 1rem 0.5rem;
+  border-bottom: 2px solid #bebebe;
+}
+
+.btn-container {
+  /* background: red; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-container button {
+  background: transparent;
+  border: 1px solid black;
+  padding: 0.1rem 0.2rem;
+  margin-left: 0.2rem;
+}
+
+.btn-container button:hover {
+  cursor: pointer;
+  transition: all 0.15s linear;
+  background: lightblue;
+}
+
+/* 
+==================
+Filters
+==================
+*/
+
+.filters-container {
+  border: 2px solid #bebebe;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: none;
+  padding: 1rem 0.5rem;
+}
+
+.filters-title {
+  text-align: center;
+  margin: 0.25rem 0;
+}
+
+.filters-btns-container {
+  /* background: yellow; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filters-btns-container button {
+  background: transparent;
+  border: 1px solid black;
+  padding: 0.1rem 0.2rem;
+  margin-left: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.filters-btns-container button:hover {
+  cursor: pointer;
+  background: orangered;
+}
+
+.clear-btn {
+  text-align: center;
+}
+
+.clear-btn button {
+  background: transparent;
+  border: 1px solid black;
+  padding: 0.1rem 0.2rem;
+}
+
+.clear-btn button:hover {
+  transition: all 0.15s linear;
+  cursor: pointer;
+  background: red;
+}

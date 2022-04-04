@@ -4,8 +4,8 @@ const Filters = () => {
   const { tasks, clearTasks, updateFilters } = useGlobalContext()
 
   return (
-    <section>
-      <div>
+    <section className='filters-container'>
+      <div className='filters-title'>
         <h4>
           {tasks.length === 1
             ? `${tasks.length} task left`
@@ -14,7 +14,7 @@ const Filters = () => {
             : `${tasks.length} tasks left`}
         </h4>
       </div>
-      <div>
+      <div className='filters-btns-container'>
         <button name='category' onClick={updateFilters}>
           all
         </button>
@@ -25,7 +25,9 @@ const Filters = () => {
           completed
         </button>
       </div>
-      <button onClick={clearTasks}>clear all tasks</button>
+      <div className='clear-btn'>
+        <button onClick={clearTasks}>clear all tasks</button>
+      </div>
     </section>
   )
 }
