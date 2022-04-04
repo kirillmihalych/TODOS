@@ -14,14 +14,21 @@ const getFromLocalStorage = () => {
 
 const initialState = {
   tasks: getFromLocalStorage(),
+  filtered_tasks: [],
   query: '',
   isEditing: false,
   currentTask: {},
+  filters: {
+    category: '',
+  },
 }
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
-
+  //set filtered tasks
+  useEffect(() => {
+    dispatch({ type: 'SET_TASKS' })
+  }, [state.tasks])
   //add functional
 
   const setQuery = (query) => {
@@ -44,9 +51,27 @@ export const AppProvider = ({ children }) => {
   const setCurrentTask = (id) => {
     dispatch({ type: 'SET_CURRENT_TASK', payload: id })
   }
-  const updateTasks = (id, updatedTask) => [
-    dispatch({ type: 'UPDATE_TASKS', payload: { id, updatedTask } }),
-  ]
+  const updateTasks = (id, updatedTask) => {
+    dispatch({ type: 'UPDATE_TASKS', payload: { id, updatedTask } })
+  }
+  //filters functional
+  const setCompletedTask = (id, completedTask) => {
+    dispatch({ type: 'SET_COMPLETED_TASK', payload: { id, completedTask } })
+  }
+
+  const clearTasks = () => {
+    dispatch({ type: 'CLEAR_TASKS' })
+  }
+
+  const updateFilters = (e) => {
+    let name = e.target.name
+    let value = e.target.lastChild.data
+    dispatch({ type: 'UPDATE_FILTERS', payload: { name, value } })
+  }
+
+  useEffect(() => {
+    dispatch({ type: 'FILTER_TASKS' })
+  }, [state.filters])
 
   return (
     <AppContext.Provider
@@ -57,6 +82,9 @@ export const AppProvider = ({ children }) => {
         removeTask,
         setCurrentTask,
         updateTasks,
+        setCompletedTask,
+        clearTasks,
+        updateFilters,
       }}
     >
       {children}

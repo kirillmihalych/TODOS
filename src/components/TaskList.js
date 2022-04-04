@@ -1,16 +1,21 @@
 import { useGlobalContext } from '../context'
 
 const TaskList = () => {
-  const { tasks, removeTask, setCurrentTask } = useGlobalContext()
+  const { removeTask, setCurrentTask, setCompletedTask, filtered_tasks } =
+    useGlobalContext()
+
   return (
     <div>
-      {tasks.map((task) => {
-        const { id, name } = task
+      {filtered_tasks.map((task) => {
+        const { id, name, completed } = task
         return (
-          <article key={id}>
+          <article key={id} className={completed ? 'active' : null}>
             <h3>{name}</h3>
-            <button onClick={() => removeTask(id)}>remove</button>
+            <button onClick={() => setCompletedTask(id, task)}>
+              {completed ? 'undone' : 'done'}
+            </button>
             <button onClick={() => setCurrentTask(task)}>edit</button>
+            <button onClick={() => removeTask(id)}>remove</button>
           </article>
         )
       })}
