@@ -16,10 +16,23 @@ const reducer = (state, action) => {
       ],
     }
   }
+  // delete functional
   if (action.type === 'REMOVE_TASK') {
     let tempId = action.payload
     let tempTasks = state.tasks.filter((task) => task.id !== tempId)
     return { ...state, tasks: tempTasks }
+  }
+  // update functional
+  if (action.type === 'SET_CURRENT_TASK') {
+    let tempTask = action.payload
+    return { ...state, isEditing: true, currentTask: tempTask }
+  }
+  if (action.type === 'UPDATE_TASKS') {
+    const { id, updatedTask } = action.payload
+    let tempTasks = state.tasks.map((task) =>
+      task.id === id ? updatedTask : task
+    )
+    return { ...state, tasks: tempTasks, isEditing: false }
   }
   throw Error(`there is no matching "${action.type}"`)
 }

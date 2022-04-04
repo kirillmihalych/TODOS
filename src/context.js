@@ -15,6 +15,8 @@ const getFromLocalStorage = () => {
 const initialState = {
   tasks: getFromLocalStorage(),
   query: '',
+  isEditing: false,
+  currentTask: {},
 }
 
 export const AppProvider = ({ children }) => {
@@ -38,9 +40,25 @@ export const AppProvider = ({ children }) => {
   const removeTask = (id) => {
     dispatch({ type: 'REMOVE_TASK', payload: id })
   }
+  // update functional
+  const setCurrentTask = (id) => {
+    dispatch({ type: 'SET_CURRENT_TASK', payload: id })
+  }
+  const updateTasks = (id, updatedTask) => [
+    dispatch({ type: 'UPDATE_TASKS', payload: { id, updatedTask } }),
+  ]
 
   return (
-    <AppContext.Provider value={{ ...state, setQuery, setTask, removeTask }}>
+    <AppContext.Provider
+      value={{
+        ...state,
+        setQuery,
+        setTask,
+        removeTask,
+        setCurrentTask,
+        updateTasks,
+      }}
+    >
       {children}
     </AppContext.Provider>
   )

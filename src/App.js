@@ -1,10 +1,13 @@
-import { AddForm, TaskList } from './components'
+import { AddForm, TaskList, EditForm } from './components'
+import { useGlobalContext } from './context'
 
 const App = () => {
+  const { isEditing } = useGlobalContext()
+
   return (
     <main>
       <div>
-        <AddForm />
+        {!isEditing ? <AddForm /> : <EditForm />}
         <TaskList />
       </div>
     </main>
