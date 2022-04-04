@@ -20,6 +20,8 @@ const initialState = {
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  //add functional
+
   const setQuery = (query) => {
     dispatch({ type: 'SET_QUERY', payload: query })
   }
@@ -32,8 +34,13 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem('tasks', JSON.stringify(state.tasks))
   }, [state.tasks])
 
+  //delete functional
+  const removeTask = (id) => {
+    dispatch({ type: 'REMOVE_TASK', payload: id })
+  }
+
   return (
-    <AppContext.Provider value={{ ...state, setQuery, setTask }}>
+    <AppContext.Provider value={{ ...state, setQuery, setTask, removeTask }}>
       {children}
     </AppContext.Provider>
   )

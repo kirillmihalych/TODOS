@@ -1,7 +1,7 @@
 import { useGlobalContext } from '../context'
 
 const TaskList = () => {
-  const { tasks } = useGlobalContext()
+  const { tasks, removeTask } = useGlobalContext()
   return (
     <div>
       {tasks.map(({ id, name }) => {
@@ -9,6 +9,7 @@ const TaskList = () => {
         return (
           <article key={id}>
             <h3>{name}</h3>
+            <button onClick={() => removeTask(id)}>remove</button>
           </article>
         )
       })}
