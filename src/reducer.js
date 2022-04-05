@@ -53,14 +53,12 @@ const reducer = (state, action) => {
           }
         : task
     )
-    console.log(tempTasks)
     return { ...state, tasks: tempTasks }
   }
   if (action.type === 'CLEAR_TASKS') {
     return { ...state, tasks: [] }
   }
   if (action.type === 'UPDATE_FILTERS') {
-    console.log(action.payload)
     const { name, value } = action.payload
     return { ...state, filters: { ...state.filters, [name]: value } }
   }

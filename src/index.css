@@ -168,9 +168,12 @@ form h2 {
 }
 
 .input-wrapper button {
+  background: #03ac13;
+  color: white;
+  font-style: italic;
   cursor: pointer;
   font-size: 1.25rem;
-  background: transparent;
+  /* background: transparent; */
   border: none;
   border-left: 2px solid #bebebe;
   padding: 0.25rem 0.5rem;
@@ -179,7 +182,8 @@ form h2 {
 
 .input-wrapper button:hover {
   transition: all 0.15s linear;
-  background: lightgreen;
+  background: white;
+  color: #03ac13;
 }
 
 /* 
@@ -216,10 +220,37 @@ Tasks
   margin-left: 0.2rem;
 }
 
+.btn-container button:nth-child(1) {
+  background: #03ac13;
+  color: white;
+}
+
+.btn-container button:nth-child(1):hover {
+  background: white;
+  color: #03ac13;
+}
+
+.btn-container button:nth-child(2) {
+  background: #296b98;
+  color: white;
+}
+
+.btn-container button:nth-child(3) {
+  background: #c90711;
+  color: white;
+}
+
+.btn-container button:nth-child(3):hover {
+  transition: all 0.1s linear;
+  background: white;
+  color: #f70d1a;
+}
+
 .btn-container button:hover {
   cursor: pointer;
   transition: all 0.15s linear;
-  background: lightblue;
+  background: white;
+  color: #296b98;
 }
 
 /* 
@@ -249,7 +280,8 @@ Filters
 }
 
 .filters-btns-container button {
-  background: transparent;
+  background: var(--blueColor);
+  color: white;
   border: 1px solid black;
   padding: 0.1rem 0.2rem;
   margin-left: 0.2rem;
@@ -258,7 +290,8 @@ Filters
 
 .filters-btns-container button:hover {
   cursor: pointer;
-  background: orangered;
+  background: white;
+  color: var(--blueColor);
 }
 
 .clear-btn {
@@ -266,7 +299,8 @@ Filters
 }
 
 .clear-btn button {
-  background: transparent;
+  background: #c90711;
+  color: white;
   border: 1px solid black;
   padding: 0.1rem 0.2rem;
 }
@@ -274,5 +308,6 @@ Filters
 .clear-btn button:hover {
   transition: all 0.15s linear;
   cursor: pointer;
-  background: red;
+  background: white;
+  color: red;
 }
