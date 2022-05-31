@@ -1,4 +1,4 @@
-## E-commerce project "Furniture-store"
+## Simple ToDo manager
 ### Netlify link
 https://crud-todos.netlify.app/
 ### Short description
